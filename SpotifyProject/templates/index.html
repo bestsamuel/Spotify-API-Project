@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Artist Info</title>
+</head>
+<body>
+    <form action="/" method="post">
+        <label for="artist_name">Enter Artist Name:</label>
+        <input type="text" id="artist_name" name="artist_name">
+        <input type="submit" value="Search">
+    </form>
+
+    {% if artist_info %}
+        <h2>{{ artist_info.name }}</h2>
+        <p>Genres: {{ artist_info.genres }}</p>
+        <p>Popularity: {{ artist_info.popularity }}</p>
+        <p>Followers: {{ artist_info.followers }}</p>
+
+        <h3>Top Tracks</h3>
+        <ul>
+            {% for track in artist_info.tracks %}
+                <li>{{ track.name }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Albums</h3>
+        <ul>
+            {% for album in artist_info.albums %}
+                <li>{{ album.name }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Related Artists</h3>
+        <ul>
+            {% for artist in artist_info.related_artists %}
+                <li>{{ artist.name }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
