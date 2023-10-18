@@ -7,7 +7,7 @@ import base64
 from requests import post, get
 import json
 
-# Load environment variables
+
 load_dotenv()
 client_id = os.getenv("CLIENT_ID")
 client_secret = os.getenv("CLIENT_SECRET")
